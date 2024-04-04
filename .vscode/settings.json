@@ -1,3 +1,4 @@
 {
-  "reactSnippets.settings.prettierEnabled": false
+  "reactSnippets.settings.prettierEnabled": false,
+  "files.autoSave": "onWindowChange"
 }
