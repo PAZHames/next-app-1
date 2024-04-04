@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 
 export const dynamicParams = true
+// if not true will try to create page for ticket by retrieving data 
 
 export async function generateStaticParams() {
     const res = await fetch('http://localhost:4000/tickets/')
