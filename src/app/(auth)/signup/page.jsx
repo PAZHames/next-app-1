@@ -1,5 +1,9 @@
+import AuthForm from "../AuthForm"
+
 export default function Signup() {
-  return <div>
-Signup
-  </div>;
-}
+    return <main>
+      <h2 className="text-center">Sign up</h2>
+      <AuthForm />
+    </main>
+  }
+  
