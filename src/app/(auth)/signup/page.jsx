@@ -1,13 +1,13 @@
 "use client"
 
-import { createClientComponentClient } from "supabase/auth-helpers-nextjs"
-
-import AuthForm from "../AuthForm"
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 
+import AuthForm from "../AuthForm"
+
 export default function Signup() {
-  const router = useRouter
+  const router = useRouter()
   const [error,setError] = useState(``)
 
   const handleSubmit = async (e, email, password) => {
@@ -21,16 +21,17 @@ export default function Signup() {
       emailRedirectTo: `${location.origin}/api/auth/callback`
     }
   })
+  if (error) {
+    setError(error.message)
+  }
+  
+  if (!error) {
+    router.push('/verify')
+    // pushes to a new router
+  }
 }
 
-if (error) {
-  setError(error.message)
-}
 
-if (!error) {
-  router.push(`/verify`)
-  // pushes to a new router
-}
 
     return <main>
       <h2 className="text-center">Sign up</h2>
