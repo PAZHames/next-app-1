@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 export default async function DashboardLayout({ children }) {
   const supabase=createServerComponentClient({ cookies })
   // how to get supabase in server components
-  const { data } = await suapabase.auth.getSession()
+  const { data } = await supabase.auth.getSession()
 
   if (!data.session) {
     redirect('/login')

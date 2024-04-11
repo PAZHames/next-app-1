@@ -8,19 +8,20 @@ import Link from "next/link";
 export default async function AuthLayout({ children }) {
 
   const supabase=createServerComponentClient({ cookies })
-  const { data } = await suapabase.auth.getSession()
+  const { data } = await supabase.auth.getSession()
 
   if (data.session) {
     redirect('/')
   }
 
-  return (<>
-  <nav>
-    <h1>Dojo Helpdesk</h1>
-    <Link href="/signup">Sign up</Link>
-    <Link href="/login">Log in</Link>
-  </nav>
-  {children}
-  </>
+  return (
+    <>
+      <nav>
+        <h1>Dojo Helpdesk</h1>
+        <Link href="/signup">Sign up</Link>
+        <Link href="/login">Log in</Link>
+      </nav>
+      {children}
+    </>
   )
 }
