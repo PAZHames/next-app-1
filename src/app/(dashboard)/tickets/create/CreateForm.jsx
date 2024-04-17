@@ -16,19 +16,16 @@ export default function CreateForm() {
         setIsLoading(true)
 
         const ticket = {
-            title, body, priority, user_email: 'mario@netninja.dev'
+            title, body, priority
         }
 
-        const res = await fetch('http://localhost:4000/tickets', {
+        const res = await fetch('http://localhost:3000/api/tickets', {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(ticket)
         })
 
-        if (res.status === 201) {
-            router.refresh()
-            router.push('/tickets')
-        }
+        
     }
 
     return (
